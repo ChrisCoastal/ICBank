@@ -41,16 +41,17 @@ const PurchaseList = (props: Props) => {
           const key = nanoid();
           return (
             <div key={key} className="">
-              <AccordionItem value={key} className="mx-6 my-2">
+              <AccordionItem value={key} className="mx-2 p-2">
                 <AccordionTrigger>
-                  <div className="flex flex-row gap-2 ">
-                    <div>
-                      <div className="h-6 w-6 rounded-full bg-stone-500" />
+                  <div className="flex flex-row justify-between w-5/6">
+                    <div className="flex flex-row items-center justify-between">
+                      <span className="h-8 w-8 rounded-full bg-stone-500 mr-4" />
+                      <p className="inline">{purchase.location}</p>
                     </div>
-                    <div className="w-36">{purchase.location}</div>
-                    <div className="w-56"></div>
-                    <div>{purchase.amount}</div>
-                    <div>{purchase.type}</div>
+                    <div className="flex flex-row items-center justify-between gap-8">
+                      <div className="">{purchase.amount}</div>
+                      <div className="">{purchase.type}</div>
+                    </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>{purchase.description}</AccordionContent>
