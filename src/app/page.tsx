@@ -9,10 +9,6 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="">
-        <nav className="h-16 border-b-white/20 border-b flex flex-row justify-between items-center mx-6">
-          <h1>cool bank</h1>
-          <SettingsMenu />
-        </nav>
         <section className="mx-2">
           <Tabs defaultValue="chequing" className="">
             <div className="flex flex-row justify-between m-2">
