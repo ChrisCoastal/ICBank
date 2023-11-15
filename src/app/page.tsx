@@ -13,7 +13,7 @@ export default function Home() {
           <h1>cool bank</h1>
           <SettingsMenu />
         </nav>
-        <header>
+        <section className="mx-2">
           <Tabs defaultValue="chequing" className="">
             <div className="flex flex-row justify-between m-2">
               <div>
@@ -31,7 +31,7 @@ export default function Home() {
             <TabsContent value="savings">savings expenditures</TabsContent>
             <TabsContent value="credit">credit expenditures</TabsContent>
           </Tabs>
-        </header>
+        </section>
         <ul></ul>
       </div>
     </main>
