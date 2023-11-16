@@ -1,29 +1,33 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card';
+import type { FC } from 'react';
+import { Card, CardContent } from '@/components/ui/Card';
+import { Contact } from '@/@types';
+import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar';
+import { Checkbox } from '@/components/ui/Checkbox';
+import { Button } from '@/components/ui/Button';
 
-type Props = {};
+type ContactProps = {
+  contact: Contact;
+  selected: boolean;
+  onSelect: (name: string) => void;
+};
 
-const Contact = (props: Props) => {
+const Contact: FC<ContactProps> = ({ contact, selected, onSelect }) => {
+  const buttonColor = selected && 'bg-cyan-100';
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
-      </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
-      </CardFooter>
-    </Card>
+    <Button
+      className={`${buttonColor} w-full`}
+      onClick={() => onSelect(contact.name)}
+    >
+      <div className="w-full flex justify-between">
+        {/* <Avatar>
+          <AvatarImage src="" />
+          <AvatarFallback>{'c'}</AvatarFallback>
+        </Avatar> */}
+        <div>{contact.name}</div>
+      </div>
+    </Button>
   );
 };
 

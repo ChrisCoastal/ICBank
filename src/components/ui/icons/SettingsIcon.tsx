@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 type SettingsIconProps = {
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
   color?: string;
   className?: string;
 };
