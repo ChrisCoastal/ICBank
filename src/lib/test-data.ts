@@ -3,7 +3,7 @@ import type { AppState } from '@/@types';
 export const INITIAL_STATE: AppState = {
   accounts: [
     {
-      name: 'Chequing',
+      name: 'Checking',
       purchases: [
         {
           type: 'Food',
