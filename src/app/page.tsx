@@ -1,39 +1,68 @@
 'use client';
 
-import Image from 'next/image';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
+import React from 'react';
+
+// components
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
-import SettingsMenu from '@/components/SettingsMenu/SettingsMenu';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import CheckIcon from '@/components/ui/icons/CheckIcon';
+
+// hooks
 import useAppContext from '@/hooks/useAppContext';
-import { nanoid } from 'nanoid';
 
 export default function Home() {
-  // const accounts = [];
-  const { state, dispatch } = useAppContext();
+  const { state } = useAppContext();
   const accounts = state.accounts;
 
   return (
-    <main className="min-h-screen">
-      <div className="">
+    <main>
+      <div className="flex gap-2 justify-end mx-4 mb-4 max-w-5xl lg:mx-auto lg:pr-4">
+        <CheckIcon className="fill-emerald-300" height="40" width="40" />
+        <h2 className="font-bold text-4xl text-emerald-300">Accounts</h2>
+      </div>
+      <div className="max-w-5xl m-auto">
         <section className="mx-2">
-          <Tabs defaultValue="Checking" className="">
-            <div className="flex  justify-between m-2 mb-8">
-              <div>
-                <h2 className="text-2xl font-bold">$3000.00</h2>
-              </div>
-              <TabsList>
-                <TabsTrigger value="Checking">Checking</TabsTrigger>
-                <TabsTrigger value="Savings">Savings</TabsTrigger>
-                <TabsTrigger value="Credit">Visa</TabsTrigger>
-              </TabsList>
-            </div>
-            {accounts.map((account) => {
-              return (
-                <TabsContent key={nanoid()} value={account.name}>
-                  <PurchaseList account={account.name} />
-                </TabsContent>
-              );
-            })}
+          <Tabs defaultValue="checking">
+            <Card className="bg-gradient-to-br from-red-500 to-violet-800">
+              <CardHeader>
+                <div>
+                  <div>
+                    <div className="text-sm font-light opacity-60">
+                      account balance
+                    </div>
+                  </div>
+                  <CardTitle className="font-bold text-4xl text-emerald-300">
+                    {`$2743.10`}
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div>
+                  <TabsList>
+                    <TabsTrigger value="checking" className="font-normal">
+                      Checking
+                    </TabsTrigger>
+                    <TabsTrigger value="savings" className="font-normal">
+                      Savings
+                    </TabsTrigger>
+                    <TabsTrigger value="visa" className="font-normal">
+                      Visa
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
+              </CardContent>
+            </Card>
+
+            <TabsContent value={accounts.checking.accountId}>
+              <PurchaseList account={accounts.checking.accountId} />
+            </TabsContent>
+            <TabsContent value={accounts.savings.accountId}>
+              <PurchaseList account={accounts.savings.accountId} />
+            </TabsContent>
+            <TabsContent value={accounts.visa.accountId}>
+              <PurchaseList account={accounts.visa.accountId} />
+            </TabsContent>
           </Tabs>
         </section>
         <ul></ul>
