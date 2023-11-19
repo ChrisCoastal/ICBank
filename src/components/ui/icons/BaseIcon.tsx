@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import paths from '@/components/ui/icons/paths'
+import paths from '@/components/ui/icons/paths';
 
 type BackArrowIconProps = {
   path: keyof typeof paths;
@@ -11,12 +11,12 @@ type BackArrowIconProps = {
 };
 
 const BackArrowIcon: FC<BackArrowIconProps> = ({
+  path,
   height = 24,
   width = 24,
-  fill = '#333',
+  fill = '#fff',
   className,
 }) => {
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,10 +24,10 @@ const BackArrowIcon: FC<BackArrowIconProps> = ({
       width={width}
       viewBox="0 0 48 48"
       fill={fill}
-      className={`svg ${className}`}
+      className={`svg ${className || ''}`}
       shapeRendering="geometricPrecision"
     >
-      paths[path]
+      {paths[path]}
     </svg>
   );
 };
