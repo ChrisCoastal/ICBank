@@ -38,7 +38,7 @@ export default function RootLayout({
                   </h1>
                 </div>
               </Link>
-              <div className="flex h-4 gap-4">
+              <div className="flex gap-4">
                 <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-0.5">
                   <Avatar>
                     <AvatarImage src={'/assets/bear-avatar.png'} />
