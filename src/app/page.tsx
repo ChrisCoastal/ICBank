@@ -3,7 +3,7 @@
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import CheckIcon from '@/components/ui/icons/CheckIcon';
-import { Tabs, TabsContent,TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import useAppContext from '@/hooks/useAppContext';
 
 export default function Home() {
@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <main>
-      <div className="flex gap-2 justify-end mx-4 mb-4 max-w-5xl lg:mx-auto lg:pr-4">
+      <div className="mx-4 mb-4 flex max-w-5xl justify-end gap-2 lg:mx-auto lg:pr-4">
         <CheckIcon className="fill-emerald-300" height="40" width="40" />
-        <h2 className="font-bold text-4xl text-emerald-300">Accounts</h2>
+        <h2 className="text-4xl font-bold text-emerald-300">Accounts</h2>
       </div>
-      <div className="max-w-5xl m-auto">
+      <div className="m-auto max-w-5xl">
         <section className="mx-2">
           <Tabs defaultValue="checking">
             <Card className="bg-gradient-to-br from-red-500 to-violet-800">
@@ -27,7 +27,7 @@ export default function Home() {
                       account balance
                     </div>
                   </div>
-                  <CardTitle className="font-bold text-4xl text-emerald-300">
+                  <CardTitle className="text-4xl font-bold text-emerald-300">
                     {`$2743.10`}
                   </CardTitle>
                 </div>

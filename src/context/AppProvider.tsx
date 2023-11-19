@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext,FC, useReducer } from 'react';
+import React, { createContext, FC, useReducer } from 'react';
 
 import { AppContext } from '@/@types';
 import { INITIAL_STATE } from '@/lib/test-data';

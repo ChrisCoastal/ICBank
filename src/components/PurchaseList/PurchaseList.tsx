@@ -43,17 +43,17 @@ const PurchaseList: FC<PurchaseListProps> = ({ account }) => {
                   ) : null}
                   <AccordionItem value={key} className="mx-2 p-2">
                     <AccordionTrigger>
-                      <div className="flex justify-between w-full mr-4">
+                      <div className="mr-4 flex w-full justify-between">
                         <div className="flex items-center justify-between gap-2">
                           <Avatar>
                             <AvatarImage src="" />
-                            <AvatarFallback className="bg-gradient-to-br from-red-500 to-violet-800 font-medium text-xl">
+                            <AvatarFallback className="bg-gradient-to-br from-red-500 to-violet-800 text-xl font-medium">
                               $
                             </AvatarFallback>
                           </Avatar>
                           <p className="inline">{purchase.location}</p>
                         </div>
-                        <div className="flex items-center justify-between w-36">
+                        <div className="flex w-36 items-center justify-between">
                           <div className="font-bold">{`$${purchase.amount.toFixed(
                             2
                           )}`}</div>
@@ -70,7 +70,7 @@ const PurchaseList: FC<PurchaseListProps> = ({ account }) => {
                           <ul className="flex gap-4">
                             <Button
                               variant="outline"
-                              className="group rounded-sm h-10 w-10 border-white/60 hover:border-emerald-300 transition-all duration-200"
+                              className="group h-10 w-10 rounded-sm border-white/60 transition-all duration-200 hover:border-emerald-300"
                             >
                               <Link
                                 href={`/purchase/split/${account}&${purchase.id}`}
@@ -78,19 +78,19 @@ const PurchaseList: FC<PurchaseListProps> = ({ account }) => {
                                 <SharePurchaseIcon
                                   height="28"
                                   width="28"
-                                  className="group-hover:fill-emerald-300 fill-white transition-all duration-200"
+                                  className="fill-white transition-all duration-200 group-hover:fill-emerald-300"
                                 />
                               </Link>
                             </Button>
                             <Button
                               variant="outline"
-                              className="group rounded-sm h-10 w-10 border-white/60 hover:border-emerald-300 transition-all duration-200"
+                              className="group h-10 w-10 rounded-sm border-white/60 transition-all duration-200 hover:border-emerald-300"
                             >
                               <Link href="">
                                 <AddPhotoIcon
                                   height="28"
                                   width="28"
-                                  className="group-hover:fill-emerald-300 fill-white transition-all duration-200"
+                                  className="fill-white transition-all duration-200 group-hover:fill-emerald-300"
                                 />
                               </Link>
                             </Button>

@@ -1,5 +1,3 @@
-
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +15,7 @@ const SettingsMenu = () => {
         <SettingsIcon
           height="24"
           width="24"
-          className="fill-stone-100 hover:fill-emerald-300 transition-all duration-200"
+          className="fill-stone-100 transition-all duration-200 hover:fill-emerald-300"
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent>

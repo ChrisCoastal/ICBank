@@ -27,19 +27,19 @@ export default function RootLayout({
     <html lang="en">
       <AppProvider>
         <body
-          className={`${inter.className} ${mode} bg-gradient-to-b from-stone-800 to-stone-900 h-screen overflow-x-hidden`}
+          className={`${inter.className} ${mode} h-screen overflow-x-hidden bg-gradient-to-b from-stone-800 to-stone-900`}
         >
           <div>
-            <nav className="h-16 border-b-white/20 border-b flex justify-between items-center mx-4 mb-4">
+            <nav className="mx-4 mb-4 flex h-16 items-center justify-between border-b border-b-white/20">
               <Link href={'/'}>
                 <div className="">
                   <h1 className="text-2xl font-black">
-                    <span className="text-emerald-300 mr-0.5">IC</span>Bank
+                    <span className="mr-0.5 text-emerald-300">IC</span>Bank
                   </h1>
                 </div>
               </Link>
-              <div className="flex gap-4">
-                <div className="rounded-full p-0.5 bg-gradient-to-br from-emerald-300 to-emerald-500">
+              <div className="flex h-4 gap-4">
+                <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-0.5">
                   <Avatar>
                     <AvatarImage src={'/assets/bear-avatar.png'} />
                     <AvatarFallback>CB</AvatarFallback>

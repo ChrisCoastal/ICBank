@@ -3,7 +3,7 @@
 import type { FC } from 'react';
 
 import type { Purchase } from '@/@types';
-import { Avatar, AvatarFallback,AvatarImage } from '@/components/ui/Avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import useAppContext from '@/hooks/useAppContext';
 
@@ -20,12 +20,12 @@ const SplitDetails: FC<SplitDetailsProps> = ({ purchase }) => {
   const contacts = state.contacts;
 
   return (
-    <div className="mb-4 relative">
+    <div className="relative mb-4">
       {purchase ? (
         <Card className="mb-1 bg-gradient-to-br from-red-500 to-violet-800">
           <CardHeader>
             <div>
-              <div className="font-bold text-lg text-white flex gap-2 mb-1">
+              <div className="mb-1 flex gap-2 text-lg font-bold text-white">
                 {purchase.location}
                 <Badge variant="outline" className="border-white/20">
                   {purchase.type}
@@ -35,24 +35,24 @@ const SplitDetails: FC<SplitDetailsProps> = ({ purchase }) => {
                 {purchase.date}
               </div>
             </div>
-            <div className="flex gap-2 items-end">
-              <CardTitle className="font-bold text-4xl text-emerald-300">
+            <div className="flex items-end gap-2">
+              <CardTitle className="text-4xl font-bold text-emerald-300">
                 {`$${purchase.amount.toFixed(2)}`}
               </CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="flex justify-between">
-              <div className="rounded-full p-1 bg-gradient-to-br from-emerald-300 to-emerald-500">
+              <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-1">
                 <Avatar className="h-24 w-24">
                   <AvatarImage src={'/assets/bear-avatar.png'} />
                   <AvatarFallback>CB</AvatarFallback>
                 </Avatar>
               </div>
               {splitCount ? (
-                <div className="self-end flex flex-col items-end">
+                <div className="flex flex-col items-end self-end">
                   {splitCount ? (
-                    <div className="text-xs font-light opacity-60 pb-1 pr-2">
+                    <div className="pb-1 pr-2 text-xs font-light opacity-60">
                       {`Split with ${splitCount} other${
                         splitCount > 1 ? 's' : ''
                       }`}
@@ -67,9 +67,9 @@ const SplitDetails: FC<SplitDetailsProps> = ({ purchase }) => {
                       return (
                         <div
                           key={contact.avatar}
-                          className={`-translate-x-[${translate}] rounded-full p-0.5 bg-gradient-to-br from-emerald-300 to-emerald-500 animate-fade-in`}
+                          className={`-translate-x-[${translate}] animate-fade-in rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-0.5`}
                         >
-                          <Avatar className="self-end h-14 w-14">
+                          <Avatar className="h-14 w-14 self-end">
                             <AvatarImage src={contact.avatar} />
                             <AvatarFallback>
                               {contact.name.slice(0, 2).toUpperCase()}

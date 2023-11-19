@@ -12,15 +12,15 @@ import useAppContext from '@/hooks/useAppContext';
 const Page = () => {
   const { state } = useAppContext();
   const pathId = usePathname().split('/').pop();
-  const [accountName, purchaseId] = pathId?.split('&')!;
+  const [accountName, purchaseId] = pathId?.split('&') || ['', ''];
   const account = state.accounts[accountName];
   const purchase = Object.values(account?.purchases).find(
     (purchase) => purchase.id === purchaseId
   )!;
   return (
     <div className="mx-4">
-      <div className="flex justify-between items-center mx-2 mb-4 max-w-5xl lg:mx-auto lg:px-4">
-        <div className="group rounded-full my-auto bg-emerald-300/95 hover:bg-emerald-300 p-2 transition-all duration-200">
+      <div className="mx-2 mb-4 flex max-w-5xl items-center justify-between lg:mx-auto lg:px-4">
+        <div className="group my-auto rounded-full bg-emerald-300/95 p-2 transition-all duration-200 hover:bg-emerald-300">
           <Link href="/" className="w-8">
             <BackArrowIcon className="fill-stone-800" />
           </Link>
@@ -31,10 +31,10 @@ const Page = () => {
             height="40"
             width="40"
           />
-          <h2 className="font-bold text-4xl text-emerald-300">Split Bill</h2>
+          <h2 className="text-4xl font-bold text-emerald-300">Split Bill</h2>
         </div>
       </div>
-      <div className="max-w-5xl m-auto">
+      <div className="m-auto max-w-5xl">
         <SplitDetails purchase={purchase} />
         <ContactList purchase={purchase} />
       </div>

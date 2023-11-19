@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 import type { Contact } from '@/@types';
-import { Avatar, AvatarFallback,AvatarImage } from '@/components/ui/Avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Badge } from '@/components/ui/Badge';
 import {
   Select,
@@ -36,9 +36,9 @@ const Contact: FC<ContactProps> = ({
         variant={'outline'}
         className={`${contactBorder} group w-full hover:border-emerald-300`}
       >
-        <div className="w-full flex items-center justify-between my-4">
+        <div className="my-4 flex w-full items-center justify-between">
           <div className="flex gap-4">
-            <div className="rounded-full p-0.5 bg-gradient-to-br from-emerald-300 to-emerald-500">
+            <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-0.5">
               <Avatar>
                 <AvatarImage src={contact.avatar} />
                 <AvatarFallback>
@@ -46,7 +46,7 @@ const Contact: FC<ContactProps> = ({
                 </AvatarFallback>
               </Avatar>
             </div>
-            <div className="text-base my-auto">{contact.name}</div>
+            <div className="my-auto text-base">{contact.name}</div>
           </div>
           <Select
             onValueChange={(value) => onSelect(value, contact)}
