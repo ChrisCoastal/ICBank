@@ -78,7 +78,7 @@ const PurchaseList: FC<PurchaseListProps> = ({ account }) => {
                         <p className="inline">{purchase.location}</p>
                       </div>
                       <div className="flex  items-center justify-between gap-8">
-                        <div className="">{purchase.amount}</div>
+                        <div className="font-light">{`$${purchase.amount}`}</div>
                         <Badge className="">{purchase.type}</Badge>
                       </div>
                     </div>

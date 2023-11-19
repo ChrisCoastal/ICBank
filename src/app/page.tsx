@@ -16,13 +16,13 @@ export default function Home() {
     <main className="min-h-screen">
       <div className="">
         <section className="mx-2">
-          <Tabs defaultValue="Chequing" className="">
+          <Tabs defaultValue="Checking" className="">
             <div className="flex  justify-between m-2 mb-8">
               <div>
-                <h2>$3000.00</h2>
+                <h2 className="text-2xl font-bold">$3000.00</h2>
               </div>
               <TabsList>
-                <TabsTrigger value="Chequing">Chequing</TabsTrigger>
+                <TabsTrigger value="Checking">Checking</TabsTrigger>
                 <TabsTrigger value="Savings">Savings</TabsTrigger>
                 <TabsTrigger value="Credit">Visa</TabsTrigger>
               </TabsList>
@@ -34,11 +34,6 @@ export default function Home() {
                 </TabsContent>
               );
             })}
-            {/* <TabsContent value="chequing">
-              <PurchaseList />
-            </TabsContent>
-            <TabsContent value="savings">savings expenditures</TabsContent>
-            <TabsContent value="credit">credit expenditures</TabsContent> */}
           </Tabs>
         </section>
         <ul></ul>
