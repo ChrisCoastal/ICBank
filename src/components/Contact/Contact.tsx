@@ -1,7 +1,8 @@
-import React from 'react';
 import type { FC } from 'react';
+
 import type { Contact } from '@/@types';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/Avatar';
+import { Avatar, AvatarFallback,AvatarImage } from '@/components/ui/Avatar';
+import { Badge } from '@/components/ui/Badge';
 import {
   Select,
   SelectContent,
@@ -9,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/Select';
-import { Badge } from '@/components/ui/Badge';
 
 type ContactProps = {
   contact: Contact;

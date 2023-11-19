@@ -1,17 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
+import './globals.css';
+
 import type { Metadata } from 'next';
 import { Inter, Red_Hat_Display } from 'next/font/google';
+import Link from 'next/link';
 
-// components
 import SettingsMenu from '@/components/SettingsMenu/SettingsMenu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
-
-// context
 import { AppProvider } from '@/context/AppProvider';
-
-// styles
-import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 const redHatDisplay = Red_Hat_Display({ subsets: ['latin'] });

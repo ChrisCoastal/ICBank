@@ -1,14 +1,9 @@
 'use client';
 
-import React from 'react';
-
-// components
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import CheckIcon from '@/components/ui/icons/CheckIcon';
-
-// hooks
+import { Tabs, TabsContent,TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import useAppContext from '@/hooks/useAppContext';
 
 export default function Home() {

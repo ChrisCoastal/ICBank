@@ -1,13 +1,13 @@
 'use client';
 
-import React from 'react';
 import type { FC } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import type { Purchase } from '@/@types';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/Avatar';
-import { Badge } from '../ui/Badge';
 
+import type { Purchase } from '@/@types';
+import { Avatar, AvatarFallback,AvatarImage } from '@/components/ui/Avatar';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import useAppContext from '@/hooks/useAppContext';
+
+import { Badge } from '../ui/Badge';
 
 type SplitDetailsProps = {
   purchase: Purchase;

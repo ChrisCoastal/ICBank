@@ -1,16 +1,12 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-// components
-import BackArrowIcon from '@/components/ui/icons/BackArrowIcon';
-import SharePurchaseIcon from '@/components/ui/icons/SharePurchaseIcon';
 import ContactList from '@/components/Contact/ContactList';
 import SplitDetails from '@/components/SplitDetails/SplitDetails';
-
-// hooks
+import BackArrowIcon from '@/components/ui/icons/BackArrowIcon';
+import SharePurchaseIcon from '@/components/ui/icons/SharePurchaseIcon';
 import useAppContext from '@/hooks/useAppContext';
 
 const Page = () => {

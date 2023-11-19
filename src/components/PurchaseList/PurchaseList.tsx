@@ -1,22 +1,20 @@
 'use client';
 
-import React from 'react';
-import type { FC } from 'react';
-import Link from 'next/link';
 import { nanoid } from 'nanoid';
-import SharePurchaseIcon from '@/components/ui/icons/SharePurchaseIcon';
+import Link from 'next/link';
+import type { FC } from 'react';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/Accordion';
-import { Button } from '@/components/ui/Button';
-import AddPhotoIcon from '@/components/ui/icons/AddPhotoIcon';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Badge } from '@/components/ui/Badge';
-
-// hooks
+import { Button } from '@/components/ui/Button';
+import AddPhotoIcon from '@/components/ui/icons/AddPhotoIcon';
+import SharePurchaseIcon from '@/components/ui/icons/SharePurchaseIcon';
 import useAppContext from '@/hooks/useAppContext';
 
 type PurchaseListProps = {

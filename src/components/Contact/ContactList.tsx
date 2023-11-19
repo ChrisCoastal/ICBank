@@ -1,10 +1,10 @@
-import React from 'react';
+import { nanoid } from 'nanoid';
 import type { FC } from 'react';
+
 import type { Purchase } from '@/@types';
 import Contact from '@/components/Contact/Contact';
-import useAppContext from '@/hooks/useAppContext';
-import { nanoid } from 'nanoid';
 import { Badge } from '@/components/ui/Badge';
+import useAppContext from '@/hooks/useAppContext';
 
 type ContactListProps = {
   purchase: Purchase;

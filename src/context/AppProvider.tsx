@@ -1,10 +1,11 @@
 'use client';
 
-import React, { FC, useReducer, createContext } from 'react';
-import reducer from './reducer';
-import { AppContext } from '@/@types';
+import React, { createContext,FC, useReducer } from 'react';
 
+import { AppContext } from '@/@types';
 import { INITIAL_STATE } from '@/lib/test-data';
+
+import reducer from './reducer';
 
 type AppContextProps = {
   children: React.ReactNode;
