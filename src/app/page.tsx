@@ -2,20 +2,17 @@
 
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import Header from '@/components/ui/Header';
 import CheckIcon from '@/components/ui/icons/CheckIcon';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import useAppContext from '@/hooks/useAppContext';
 
 export default function Home() {
-  const { state } = useAppContext();
-  const accounts = state.accounts;
+  const { accounts } = useAppContext().state;
 
   return (
-    <main>
-      <div className="mx-4 mb-4 flex max-w-5xl justify-end gap-2 lg:mx-auto lg:pr-4">
-        <CheckIcon className="fill-emerald-300" height="40" width="40" />
-        <h2 className="text-4xl font-bold text-emerald-300">Accounts</h2>
-      </div>
+    <main className="mx-2">
+      <Header title="Accounts" icon="check" className="mx-4" />
       <div className="m-auto max-w-5xl">
         <section className="mx-2">
           <Tabs defaultValue="checking">
