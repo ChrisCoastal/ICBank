@@ -5,6 +5,8 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
 
 export default function Home() {
+  const accounts = [];
+
   return (
     <main className="min-h-screen">
       <div className="">
@@ -13,12 +15,17 @@ export default function Home() {
           <SettingsIcon height="24" width="24" color="#4d4a4a" />
         </nav>
         <header>
-          <Tabs defaultValue="chequing" className="w-full">
-            <TabsList>
-              <TabsTrigger value="chequing">Chequing</TabsTrigger>
-              <TabsTrigger value="savings">Savings</TabsTrigger>
-              <TabsTrigger value="credit">Visa</TabsTrigger>
-            </TabsList>
+          <Tabs defaultValue="chequing" className="">
+            <div className="flex flex-row justify-between m-2">
+              <div>
+                <h2>$3000.00</h2>
+              </div>
+              <TabsList>
+                <TabsTrigger value="chequing">Chequing</TabsTrigger>
+                <TabsTrigger value="savings">Savings</TabsTrigger>
+                <TabsTrigger value="credit">Visa</TabsTrigger>
+              </TabsList>
+            </div>
             <TabsContent value="chequing">
               <PurchaseList />
             </TabsContent>
