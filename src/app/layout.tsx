@@ -25,10 +25,13 @@ export default function RootLayout({
     <html lang="en">
       <AppProvider>
         <body
-          className={`${inter.className} ${mode} h-screen overflow-x-hidden bg-gradient-to-b from-stone-800 to-stone-900`}
+          className={`${inter.className} ${mode} relative overflow-x-hidden `}
         >
-          <Nav />
+          <div className="relative z-20">
+            <Nav />
             {children}
+          </div>
+          <div className="fixed left-0 top-0 h-screen w-screen bg-gradient-to-b from-stone-800/80 from-5% via-stone-900/80 via-70% to-violet-800/20"></div>
         </body>
       </AppProvider>
     </html>
