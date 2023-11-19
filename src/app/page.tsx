@@ -9,7 +9,7 @@ export default function Home() {
     <main className="min-h-screen">
       <div className="">
         <nav className="h-16 border-b-white/20 border-b flex flex-row justify-between items-center mx-6">
-          <h1>better bank</h1>
+          <h1>cool bank</h1>
           <SettingsIcon height="24" width="24" color="#4d4a4a" />
         </nav>
         <header>
