@@ -8,8 +8,8 @@
     "import/newline-after-import": "error",
     "import/no-duplicates": "error"
   },
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "env": { "es6": true }
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": { "es6": true }
 }
