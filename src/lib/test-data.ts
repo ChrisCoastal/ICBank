@@ -1,138 +1,178 @@
 import type { AppState } from '@/@types';
 
 export const INITIAL_STATE: AppState = {
-  accounts: [
-    {
-      name: 'Checking',
-      purchases: [
-        {
+  accounts: {
+    checking: {
+      accountId: 'checking',
+      purchases: {
+        '1': {
+          id: '1',
+          accountName: 'checking',
           type: 'Food',
           location: 'Tap and Barrel',
           date: 'Wednesday November 15, 2023',
           amount: 60.99,
           description: 'Drinks with friends',
+          split: {},
         },
-        {
+        '2': {
+          id: '2',
+          accountName: 'checking',
           type: 'Food',
           location: 'Tap and Barrel',
           date: 'Wednesday November 15, 2023',
           amount: 150.99,
           description: 'Drinks with friends',
+          split: {},
         },
-        {
+        '3': {
+          id: '3',
+          accountName: 'checking',
           type: 'Food',
-          location: 'Nemesis Polygon',
+          location: 'Nemesis Poly',
           date: 'Wednesday November 15, 2023',
-          amount: 23.99,
+          amount: 23.75,
           description: 'Coffee',
+          split: {},
         },
-        {
-          type: 'Transit',
-          location: 'Translink',
+        '4': {
+          id: '4',
+          accountName: 'checking',
+          type: 'Food',
+          location: 'Nook',
           date: 'Tuesday November 14, 2023',
-          amount: 23.99,
-          description: 'Bus',
+          amount: 258.93,
+          description: 'Pizza',
+          split: {},
         },
-      ],
+        '5': {
+          id: '5',
+          accountName: 'checking',
+          type: 'Food',
+          location: 'Nemesis Poly',
+          date: 'Wednesday November 15, 2023',
+          amount: 37.2,
+          description: 'Pizza',
+          split: {},
+        },
+      },
     },
-    {
-      name: 'Savings',
-      purchases: [
-        {
-          type: 'Food',
-          location: 'Tap and Barrel',
-          date: 'Wednesday November 15, 2023',
-          amount: 60.99,
-          description: 'Drinks with friends',
+    savings: {
+      accountId: 'savings',
+      purchases: {
+        '1': {
+          id: '1',
+          accountName: 'savings',
+          type: 'Rent',
+          location: 'LTJ Bukem',
+          date: 'Wednesday November 1, 2023',
+          amount: 2800.0,
+          description: 'Apartment Rent',
+          split: {},
         },
-        {
-          type: 'Food',
-          location: 'Tap and Barrel',
-          date: 'Wednesday November 15, 2023',
-          amount: 150.99,
-          description: 'Drinks with friends',
+        '2': {
+          id: '2',
+          accountName: 'savings',
+          type: 'Rent',
+          location: 'LTJ Bukem',
+          date: 'Tuesday October 1, 2023',
+          amount: 2800.0,
+          description: 'Apartment Rent',
+          split: {},
         },
-        {
-          type: 'Food',
-          location: 'Nemesis Polygon',
+        '3': {
+          id: '3',
+          accountName: 'savings',
+          type: 'Rent',
+          location: 'LTJ Bukem',
+          date: 'Wednesday September 1, 2023',
+          amount: 2800.0,
+          description: 'Apartment Rent',
+          split: {},
+        },
+      },
+    },
+    visa: {
+      accountId: 'visa',
+      purchases: {
+        '1': {
+          id: '1',
+          accountName: 'visa',
+          type: 'Shopping',
+          location: 'Uniqlo',
           date: 'Wednesday November 15, 2023',
-          amount: 23.99,
+          amount: 134.66,
+          description: 'Drinks with friends',
+          split: {},
+        },
+        '2': {
+          id: '2',
+          accountName: 'visa',
+          type: 'Food',
+          location: 'Nemesis Poly',
+          date: 'Frday November 2, 2023',
+          amount: 23.75,
           description: 'Coffee',
+          split: {},
         },
-        {
-          type: 'Transit',
-          location: 'Translink',
-          date: 'Tuesday November 14, 2023',
-          amount: 23.99,
-          description: 'Bus',
+        '3': {
+          id: '3',
+          accountName: 'visa',
+          type: 'Shopping',
+          location: 'molo',
+          date: 'Thursday October 29, 2023',
+          amount: 258.93,
+          description: 'Pizza',
+          split: {},
         },
-      ],
+        '4': {
+          id: '4',
+          accountName: 'visa',
+          type: 'Food',
+          location: "Lee's Donuts",
+          date: 'Saturday October 11, 2023',
+          amount: 13.5,
+          description: 'Pizza',
+          split: {},
+        },
+      },
     },
-    {
-      name: 'Visa',
-      purchases: [
-        {
-          type: 'Food',
-          location: 'Tap and Barrel',
-          date: 'Wednesday November 15, 2023',
-          amount: 60.99,
-          description: 'Drinks with friends',
-        },
-        {
-          type: 'Food',
-          location: 'Tap and Barrel',
-          date: 'Wednesday November 15, 2023',
-          amount: 150.99,
-          description: 'Drinks with friends',
-        },
-        {
-          type: 'Food',
-          location: 'Nemesis Polygon',
-          date: 'Wednesday November 15, 2023',
-          amount: 23.99,
-          description: 'Coffee',
-        },
-        {
-          type: 'Transit',
-          location: 'Translink',
-          date: 'Tuesday November 14, 2023',
-          amount: 23.99,
-          description: 'Bus',
-        },
-      ],
-    },
-  ],
-  contacts: [
-    {
+  },
+  contacts: {
+    '1': {
+      id: '1',
       name: 'Jacob',
       email: 'jacob@email.com',
       phone: '555 555 1234',
-      avatar: '',
+      avatar: '/assets/jacob-avatar.png',
     },
-    {
+    '2': {
+      id: '2',
       name: 'Victor',
       email: 'victor@email.com',
       phone: '555 555 1234',
-      avatar: '',
+      avatar: '/assets/victor-avatar.png',
     },
-    {
+    '3': {
+      id: '3',
       name: 'Chris',
       email: 'chris@email.com',
       phone: '555 555 1234',
-      avatar: '',
+      avatar: '/assets/chris-avatar.png',
     },
-    {
+    '4': {
+      id: '4',
       name: 'LTJ Bukem',
       email: 'ltj@email.com',
       phone: '555 555 1234',
-      avatar: '',
+      avatar: '/assets/bukem-avatar.png',
     },
-    {
+    '5': {
+      id: '5',
       name: 'Stevie Hyper D',
       email: 'stevieh@email.com',
       phone: '555 555 1234',
-      avatar: '',
+      avatar: '/assets/stevie-avatar.png',
     },
-  ],
-  selectedSplitContacts: [],
+  },
 };

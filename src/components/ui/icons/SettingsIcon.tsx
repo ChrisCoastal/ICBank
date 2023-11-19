@@ -19,7 +19,6 @@ const SettingsIcon: FC<SettingsIconProps> = ({
       height={height}
       width={width}
       viewBox="0 0 48 48"
-      fill={color}
       className={`svg ${className}`}
       shapeRendering="geometricPrecision"
     >

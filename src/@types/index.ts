@@ -7,25 +7,31 @@ export type AppContext = {
 
 type ToggleSplitContactAction = {
   type: 'TOGGLE_SPLIT_CONTACT';
-  payload: string;
+  payload: { contactId: ContactId; purchase: Purchase; splitPercent: number };
 };
 
 export type ReducerActions = ToggleSplitContactAction;
 
 export type Purchase = {
+  id: string;
+  accountName: string;
   type: string;
   location: string;
   date: string;
   amount: number;
   description: string;
+  split: Record<ContactId, number>;
 };
 
 export type Account = {
-  name: string;
-  purchases: Purchase[];
+  accountId: string;
+  purchases: Record<string, Purchase>;
 };
 
+export type ContactId = string;
+
 export type Contact = {
+  id: ContactId;
   name: string;
   email: string;
   phone: string;
@@ -33,7 +39,6 @@ export type Contact = {
 };
 
 export type AppState = {
-  accounts: Account[];
-  contacts: Contact[];
-  selectedSplitContacts: string[];
+  accounts: Record<string, Account>;
+  contacts: Record<string, Contact>;
 };

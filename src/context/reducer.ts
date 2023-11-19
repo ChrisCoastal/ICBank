@@ -4,23 +4,32 @@ const reducer = (state: AppState, action: ReducerActions): AppState => {
   const { type, payload } = action;
   switch (type) {
     case 'TOGGLE_SPLIT_CONTACT':
-      const index = state.selectedSplitContacts.indexOf(payload);
+      const { contactId, purchase, splitPercent } = payload;
+      const { id: purchaseId, split } = purchase;
+      const account = state.accounts[purchase.accountName];
+      const newSplit = { ...split };
+      if (split[contactId] === splitPercent || splitPercent === 0) {
+        delete newSplit[contactId];
+      } else {
+        newSplit[contactId] = splitPercent;
+      }
 
-      if (index > -1) {
-        return {
-          ...state,
-          selectedSplitContacts: [
-            ...state.selectedSplitContacts.slice(0, index),
-            ...state.selectedSplitContacts.slice(index + 1),
-          ],
-        };
-      }
-      if (index === -1) {
-        return {
-          ...state,
-          selectedSplitContacts: [...state.selectedSplitContacts, payload],
-        };
-      }
+      return {
+        ...state,
+        accounts: {
+          ...state.accounts,
+          [purchase.accountName]: {
+            ...account,
+            purchases: {
+              ...account.purchases,
+              [purchaseId]: {
+                ...account.purchases[purchaseId],
+                split: newSplit,
+              },
+            },
+          },
+        },
+      };
 
     default:
       return state;
