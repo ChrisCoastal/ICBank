@@ -1,15 +1,10 @@
 import type { FC } from 'react';
 
 import type { Contact } from '@/@types';
+import ContactAvatar from '@/components/Contact/ContactAvatar';
+import ContactSplitSelect from '@/components/Contact/ContactSplitSelect';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Badge } from '@/components/ui/Badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/Select';
 
 type ContactProps = {
   contact: Contact;
@@ -37,52 +32,13 @@ const Contact: FC<ContactProps> = ({
         className={`${contactBorder} group w-full hover:border-emerald-300`}
       >
         <div className="my-4 flex w-full items-center justify-between">
-          <div className="flex gap-4">
-            <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-0.5">
-              <Avatar>
-                <AvatarImage src={contact.avatar} />
-                <AvatarFallback>
-                  {contact.name.slice(0, 2).toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
-            </div>
-            <div className="my-auto text-base">{contact.name}</div>
-          </div>
-          <Select
-            onValueChange={(value) => onSelect(value, contact)}
-            value={selectValue}
-          >
-            <SelectTrigger className="w-40 font-light">
-              <SelectValue placeholder="Add Split" />
-            </SelectTrigger>
-            <SelectContent>
-              {selectValue ? (
-                <SelectItem value="0" className="flex gap-8">
-                  <span className="text-emerald-300">{`Undo split`}</span>
-                </SelectItem>
-              ) : null}
-              <SelectItem value="25" className="flex gap-8">
-                <span className="text-emerald-300">{`25% ($${(
-                  purchaseAmount * 0.25
-                ).toFixed(2)})`}</span>
-              </SelectItem>
-              <SelectItem value="50">
-                <span className="text-emerald-300">{`50% ($${(
-                  purchaseAmount * 0.5
-                ).toFixed(2)})`}</span>
-              </SelectItem>
-              <SelectItem value="75">
-                <span className="text-emerald-300">{`75% ($${(
-                  purchaseAmount * 0.75
-                ).toFixed(2)})`}</span>
-              </SelectItem>
-              <SelectItem value="100">
-                <span className="text-emerald-300">{`100% ($${purchaseAmount.toFixed(
-                  2
-                )})`}</span>
-              </SelectItem>
-            </SelectContent>
-          </Select>
+          <ContactAvatar contact={contact} />
+          <ContactSplitSelect
+            contact={contact}
+            selectValue={selectValue}
+            purchaseAmount={purchaseAmount}
+            onSelect={onSelect}
+          />
         </div>
       </Badge>
     </>
