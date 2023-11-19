@@ -1,8 +1,7 @@
 import Image from 'next/image';
-// import SettingsIcon from '@/components/icons/SettingsIcon';
-import SettingsIcon from '@/components/icons/SettingsIcon';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
+import SettingsMenu from '@/components/SettingsMenu/SettingsMenu';
 
 export default function Home() {
   const accounts = [];
@@ -12,7 +11,7 @@ export default function Home() {
       <div className="">
         <nav className="h-16 border-b-white/20 border-b flex flex-row justify-between items-center mx-6">
           <h1>cool bank</h1>
-          <SettingsIcon height="24" width="24" color="#4d4a4a" />
+          <SettingsMenu />
         </nav>
         <header>
           <Tabs defaultValue="chequing" className="">
