@@ -1,8 +1,10 @@
+import { Switch } from '@radix-ui/react-switch';
 import { nanoid } from 'nanoid';
 import type { FC } from 'react';
 
 import type { Purchase } from '@/@types';
 import Contact from '@/components/Contact/Contact';
+import ContactSplitEvenly from '@/components/Contact/ContactSplitEvenly';
 import { Badge } from '@/components/ui/Badge';
 import useAppContext from '@/hooks/useAppContext';
 
@@ -25,8 +27,9 @@ const ContactList: FC<ContactListProps> = ({ purchase }) => {
 
   return (
     <div>
-      <div>
-        <Badge className="mb-2 mt-2 w-52 bg-emerald-300">Recent Contacts</Badge>
+      <div className="flex items-center justify-between">
+        <Badge className="mb-2 mt-2 w-40 bg-emerald-300">Recent Contacts</Badge>
+        <ContactSplitEvenly purchase={purchase} />
       </div>
       <ul className="flex flex-col gap-2">
         {contactData.map((contact) => {

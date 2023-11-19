@@ -32,7 +32,7 @@ const Contact: FC<ContactProps> = ({
         className={`${contactBorder} group w-full hover:border-emerald-300`}
       >
         <div className="my-4 flex w-full items-center justify-between">
-          <ContactAvatar contact={contact} />
+          <ContactAvatar name={contact.name} avatarUrl={contact.avatar} />
           <ContactSplitSelect
             contact={contact}
             selectValue={selectValue}
