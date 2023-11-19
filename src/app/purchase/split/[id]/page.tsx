@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 
 import ContactList from '@/components/Contact/ContactList';
-import SplitDetails from '@/components/SplitDetails/SplitDetails';
+import SplitDetails from '@/components/SplitDetailCard/SplitDetailCard';
 import Header from '@/components/ui/Header';
 import useAppContext from '@/hooks/useAppContext';
 
