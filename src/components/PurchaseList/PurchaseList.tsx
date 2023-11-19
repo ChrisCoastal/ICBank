@@ -6,6 +6,9 @@ import {
   AccordionTrigger,
 } from '@/components/ui/Accordion';
 import { nanoid } from 'nanoid';
+import { Button } from '@/components/ui/Button';
+import SharePurchaseIcon from '@/components/ui/icons/SharePurchaseIcon';
+import Link from 'next/link';
 
 type Props = {};
 
@@ -56,10 +59,13 @@ const PurchaseList = (props: Props) => {
 
                       <div className="self-end">
                         <ul className="flex flex-row gap-4 ">
-                          <li className="rounded-sm h-8 w-8 bg-cyan-300"></li>
-                          <li className="rounded-sm h-8 w-8 bg-cyan-300"></li>
-                          <li className="rounded-sm h-8 w-8 bg-cyan-300"></li>
-                          <li className="rounded-sm h-8 w-8 bg-cyan-300"></li>
+                          <Button className="rounded-sm h-10 w-10 bg-cyan-300">
+                            <Link href={`/purchase/share/${key}`}>
+                              <SharePurchaseIcon height="36" width="36" />
+                            </Link>
+                          </Button>
+                          <Button className="rounded-sm h-10 w-10 bg-cyan-300"></Button>
+                          <Button className="rounded-sm h-10 w-10 bg-cyan-300"></Button>
                         </ul>
                       </div>
                     </div>
