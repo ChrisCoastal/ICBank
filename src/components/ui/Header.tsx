@@ -16,15 +16,10 @@ type HeaderProps = {
 };
 
 const Header: FC<HeaderProps> = ({ title, icon, back, className }) => {
-  // <div className="mx-4 mb-4 flex max-w-5xl justify-end gap-2 lg:mx-auto lg:pr-4">
-  //   <CheckIcon className="fill-emerald-300" height="40" width="40" />
-  //   <h2 className="text-4xl font-bold text-emerald-300">Accounts</h2>
-  // </div>;
   const headerStyles = cn(
     'mx-2 mb-4 flex max-w-5xl items-center justify-between gap-2 lg:mx-auto lg:pr-4',
     className
   );
-  //mx-2 mb-4 flex max-w-5xl items-center justify-between lg:mx-auto lg:px-
   return (
     <header className={headerStyles}>
       {back ? (

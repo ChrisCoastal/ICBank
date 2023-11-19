@@ -25,7 +25,9 @@ const ContactList: FC<ContactListProps> = ({ purchase }) => {
 
   return (
     <div>
-      <Badge className="mb-2 mt-2 w-52 bg-emerald-300">Recent Contacts</Badge>
+      <div>
+        <Badge className="mb-2 mt-2 w-52 bg-emerald-300">Recent Contacts</Badge>
+      </div>
       <ul className="flex flex-col gap-2">
         {contactData.map((contact) => {
           const selected = Boolean(

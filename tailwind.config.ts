@@ -69,11 +69,17 @@ module.exports = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        'spin-x': {
+          '0%': { transform: 'rotateY(0deg)', opacity: '0 ' },
+          '20%': { opacity: '1 ' },
+          '100%': { transform: 'rotateY(720deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': '0.3s ease-in-out fade-in forwards',
+        'fade-in': '0.4s ease-in-out fade-in forwards',
+        'spin-y': 'spin-y 2s ease-in-out forwards',
       },
     },
   },

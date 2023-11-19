@@ -5,12 +5,25 @@ export type AppContext = {
   dispatch: Dispatch<ReducerActions>;
 };
 
-type ToggleSplitContactAction = {
-  type: 'TOGGLE_SPLIT_CONTACT';
-  payload: { contactId: ContactId; purchase: Purchase; splitPercent: number };
+export type SplitContactPayload = {
+  contactId: ContactId;
+  purchase: Purchase;
+  splitPercent: number;
 };
 
-export type ReducerActions = ToggleSplitContactAction;
+type ToggleSplitContactAction = {
+  type: 'TOGGLE_SPLIT_CONTACT';
+  payload: SplitContactPayload;
+};
+
+export type SplitEvenlyPayload = { purchase: Purchase; splitEven: boolean };
+
+type ToggleSplitEvenlyAction = {
+  type: 'TOGGLE_SPLIT_EVENLY';
+  payload: SplitEvenlyPayload;
+};
+
+export type ReducerActions = ToggleSplitContactAction | ToggleSplitEvenlyAction;
 
 export type Purchase = {
   id: string;
@@ -21,6 +34,7 @@ export type Purchase = {
   amount: number;
   description: string;
   split: Record<ContactId, number>;
+  splitEven: boolean;
 };
 
 export type Account = {
