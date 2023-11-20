@@ -14,11 +14,12 @@ Notable additions include:
 - merging all icons into a `BaseIcon` component
   - all possible svg paths for the icon are kept together in an object exported `as const`
   - the component accepts a `keyof paths` as an icon `prop`, giving nice intellisense in the editor
+- update backend to Firestore and refactor reducer
 - styling refinements across the app
 
 ## Built With
 
-This project was built with React, Next.js, Typescipt, Tailwind, and Shadcn component library.
+This project was built with React, Next.js, Typescipt, Tailwind, shadcn, and Firestore.
 
 ## Getting Started
 
