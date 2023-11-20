@@ -11,7 +11,7 @@ const SplitContactsTitle: FC<SplitContactsTitleProps> = ({
 }) => {
   return (
     <div className="pb-1 pr-2 text-xs font-light opacity-60">
-      {`$${splitAmount} split with ${splitCount} other${
+      {`$${splitAmount.toFixed(2)} split with ${splitCount} other${
         splitCount > 1 ? 's' : ''
       }`}
     </div>
