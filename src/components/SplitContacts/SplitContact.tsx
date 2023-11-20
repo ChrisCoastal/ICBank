@@ -16,7 +16,7 @@ const Contact: FC<ContactProps> = ({ contact, purchase }) => {
   const contactSplit = purchase.split[contact.id];
   const splitValue = contactSplit ? contactSplit.toString() : undefined;
   const contactBorder = Boolean(contactSplit)
-    ? 'border-emerald-300 border-2'
+    ? 'border-emerald-300 outline outline-1 outline-emerald-300'
     : 'border-white/60';
 
   return (

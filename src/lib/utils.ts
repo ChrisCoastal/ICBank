@@ -16,7 +16,7 @@ export function getUserSplit(purchaseSplit: Record<ContactId, number>) {
   }, 1);
 }
 
-export function getContactsSplit(
+export function updateContactsSplit(
   contactSplit: Record<ContactId, number>,
   purchaseSplit: Record<ContactId, number>
 ) {
@@ -29,12 +29,43 @@ export function getContactsSplit(
   return updatedPurchaseSplit;
 }
 
+export function updateEvenContactsSplit(
+  purchaseSplit: Record<ContactId, number>,
+  contactId: ContactId
+) {
+  const splitContacts = [
+    ...new Set([...Object.keys(purchaseSplit), contactId]),
+  ];
+  const USER_SPLIT = 1;
+
+  const splitValue = (1 / (splitContacts.length + USER_SPLIT)).toFixed(2);
+  const updatedPurchaseSplit = splitContacts.reduce((acc, contactId) => {
+    return { ...acc, [contactId]: splitValue };
+  }, {});
+
+  return updatedPurchaseSplit;
+}
+
+export function getEvenSplit(purchaseSplit: Record<ContactId, number>) {
+  const splitContacts = Object.keys(purchaseSplit);
+  const USER_SPLIT = 1;
+
+  const splitValue = Number(
+    (1 / (splitContacts.length + USER_SPLIT)).toFixed(2)
+  );
+  const updatedPurchaseSplit = splitContacts.reduce((acc, contactId) => {
+    return { ...acc, [contactId]: splitValue };
+  }, {});
+
+  return updatedPurchaseSplit;
+}
+
 export function getSplitSelectItems(
   splitAmounts: number[],
   contactSplitAmount?: number
 ) {
   return contactSplitAmount
-    ? [contactSplitAmount, ...splitAmounts].sort((a, b) => a - b)
+    ? [...new Set([contactSplitAmount, ...splitAmounts])].sort((a, b) => a - b)
     : splitAmounts;
 }
 
@@ -44,64 +75,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // reducer
-export function updateSplitContactState(
-  state: AppState,
-  payload: SplitContactPayload
-) {
-  const { contactId, purchase, splitPercent } = payload;
-  const { id: purchaseId, split } = purchase;
-  const account = state.accounts[purchase.accountId];
-  const newSplit = { ...split };
-  if (split[contactId] === splitPercent || splitPercent === 0) {
-    delete newSplit[contactId];
-  } else {
-    newSplit[contactId] = splitPercent;
-  }
-
-  return {
-    ...state,
-    accounts: {
-      ...state.accounts,
-      [purchase.accountId]: {
-        ...account,
-        purchases: {
-          ...account.purchases,
-          [purchaseId]: {
-            ...account.purchases[purchaseId],
-            split: newSplit,
-          },
-        },
-      },
-    },
-  };
-}
-
-export function updateSplitEvenlyState(
-  state: AppState,
-  payload: SplitEvenlyPayload
-) {
-  const { purchase, splitEven } = payload;
-  const { id: purchaseId } = purchase;
-  const account = state.accounts[purchase.accountId];
-
-  return {
-    ...state,
-    accounts: {
-      ...state.accounts,
-      [purchase.accountId]: {
-        ...account,
-        purchases: {
-          ...account.purchases,
-          [purchaseId]: {
-            ...account.purchases[purchaseId],
-            splitEven,
-          },
-        },
-      },
-    },
-  };
-}
-
 export function updatePurchaseState(
   state: AppState,
   payload: UpdatePurchasePayload

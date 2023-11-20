@@ -16,7 +16,9 @@ const ContactAvatar = memo(function ContactAvatar({
       <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-0.5">
         <Avatar>
           <AvatarImage src={avatarUrl} />
-          <AvatarFallback>{name.slice(0, 2).toUpperCase()}</AvatarFallback>
+          <AvatarFallback className="bg-transparent">
+            {name.slice(0, 2).toUpperCase()}
+          </AvatarFallback>
         </Avatar>
       </div>
       <div className="my-auto text-base">{name}</div>

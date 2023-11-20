@@ -12,11 +12,10 @@ import {
   SelectValue,
 } from '@/components/ui/Select';
 import { db } from '@/firebase/firebase.config';
-import useAppContext from '@/hooks/useAppContext';
 import {
-  getContactsSplit,
   getSplitSelectItems,
   getUserSplit,
+  updateContactsSplit,
 } from '@/lib/utils';
 
 type ContactSplitSelectProps = {
@@ -32,18 +31,16 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
   purchase,
   splitValue,
 }) => {
-  const { state, dispatch } = useAppContext();
-
   const userSplit = getUserSplit(purchase.split);
-  const splitEven = purchase.splitEven;
   const contactSplitAmount = splitValue ? +splitValue : undefined;
+  const availableSplitAmount = userSplit + (contactSplitAmount || 0);
   const splitSelectItems = getSplitSelectItems(
     splitAmounts,
     contactSplitAmount
   );
 
   async function handleSelect(selectValue: string) {
-    const updatedSplit = getContactsSplit(
+    const updatedSplit = updateContactsSplit(
       { [contact.id]: +selectValue },
       purchase.split
     );
@@ -57,7 +54,7 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
     setDoc(
       accountRef,
       { ...purchase, split: updatedSplit },
-      { merge: true }
+      { merge: Boolean(updatedSplit[contact.id]) }
     ).catch((error) => console.error('Error writing document: ', error));
   }
 
@@ -83,7 +80,7 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
                 <span className="text-emerald-300">{`Undo split`}</span>
               </SelectItem>
             ) : null}
-            {splitAmounts.map((splitAmount) => {
+            {splitSelectItems.map((splitAmount) => {
               const splitAmountValue = splitAmount.toString();
               const splitAmountPercent = splitAmount * 100;
               const splitAmountTotal = purchase.amount * splitAmount;
@@ -92,7 +89,7 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
                 <SelectItem
                   key={splitAmountValue}
                   value={splitAmountValue}
-                  disabled={splitAmount > userSplit}
+                  disabled={splitAmount > availableSplitAmount}
                 >
                   <span className="text-emerald-300">{`${splitAmountPercent}% ($${splitAmountTotal.toFixed(
                     2

@@ -23,12 +23,12 @@ const Header: FC<HeaderProps> = ({ title, icon, back, className }) => {
   return (
     <header className={headerStyles}>
       {back ? (
-        <div className="group my-auto rounded-full bg-emerald-300/95 p-2 transition-all duration-200 hover:bg-emerald-300">
+        <div className="group my-auto rounded-full bg-emerald-300 p-2 transition-all duration-300 active:scale-90">
           <Link href="/" className="w-8">
             <BaseIcon
               path="backArrow"
               fill="#292524"
-              className="transition-all duration-200 hover:fill-stone-700"
+              className="transition-all duration-200"
             />
           </Link>
         </div>
