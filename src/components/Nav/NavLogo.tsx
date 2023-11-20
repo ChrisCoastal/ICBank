@@ -3,9 +3,7 @@ import Link from 'next/link';
 
 import bearLogo from '/public/assets/bear-head-logo.png';
 
-type Props = {};
-
-const NavLogo = (props: Props) => {
+const NavLogo = () => {
   return (
     <Link href={'/'}>
       <div className="flex gap-1">

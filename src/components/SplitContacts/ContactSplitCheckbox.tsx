@@ -4,7 +4,6 @@ import type { FC } from 'react';
 import type { Contact, Purchase } from '@/@types';
 import { SplitCheckbox } from '@/components/ui/SplitCheckbox';
 import { db } from '@/firebase/firebase.config';
-import useAppContext from '@/hooks/useAppContext';
 import { getEvenSplit, updateContactsSplit } from '@/lib/utils';
 
 type ContactSplitCheckboxProps = {
@@ -18,7 +17,6 @@ const ContactSplitCheckbox: FC<ContactSplitCheckboxProps> = ({
   purchase,
   splitValue,
 }) => {
-  const { state, dispatch } = useAppContext();
 
   function handleCheckedChange(checked: boolean | 'indeterminate') {
     if (checked === 'indeterminate') return;

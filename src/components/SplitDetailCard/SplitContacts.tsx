@@ -28,10 +28,9 @@ const SplitContacts: FC<SplitContactProps> = ({
           />
 
           <div className="flex justify-end">
-            {splitContacts.map((splitContact, i) => {
+            {splitContacts.map((splitContact) => {
               const contactId = splitContact[0];
               const contact = contacts[contactId];
-              const splitPercent = splitContact[1];
               return (
                 <div
                   key={contact.avatar}

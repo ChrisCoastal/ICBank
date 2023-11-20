@@ -54,7 +54,7 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
     setDoc(
       accountRef,
       { ...purchase, split: updatedSplit },
-      { merge: Boolean(updatedSplit[contact.id]) }
+      { merge: false }
     ).catch((error) => console.error('Error writing document: ', error));
   }
 

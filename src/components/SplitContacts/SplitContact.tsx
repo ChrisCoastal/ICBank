@@ -1,11 +1,9 @@
 import type { FC } from 'react';
-import memo from 'react';
 
 import type { Contact, Purchase } from '@/@types';
 import ContactAvatar from '@/components/SplitContacts/ContactAvatar';
 import ContactSplitSelect from '@/components/SplitContacts/ContactSplitSelect';
 import { Badge } from '@/components/ui/Badge';
-import { getUserSplit } from '@/lib/utils';
 
 type ContactProps = {
   contact: Contact;
@@ -13,7 +11,6 @@ type ContactProps = {
 };
 
 const Contact: FC<ContactProps> = ({ contact, purchase }) => {
-  const userSplit = getUserSplit(purchase.split);
   const contactSplit = purchase.split[contact.id];
   const splitValue = contactSplit ? contactSplit.toString() : undefined;
   const contactBorder = Boolean(contactSplit)
@@ -29,6 +26,7 @@ const Contact: FC<ContactProps> = ({ contact, purchase }) => {
         <div className="my-4 flex w-full items-center justify-between">
           <ContactAvatar name={contact.name} avatarUrl={contact.avatar} />
           <ContactSplitSelect
+            key={splitValue}
             contact={contact}
             splitValue={splitValue}
             purchase={purchase}

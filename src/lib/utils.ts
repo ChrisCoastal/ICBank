@@ -1,13 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import type {
-  AppState,
-  ContactId,
-  SplitContactPayload,
-  SplitEvenlyPayload,
-  UpdatePurchasePayload,
-} from '@/@types';
+import type { AppState, ContactId, UpdatePurchasePayload } from '@/@types';
 
 // split bill
 export function getUserSplit(purchaseSplit: Record<ContactId, number>) {
@@ -25,7 +19,6 @@ export function updateContactsSplit(
 
   if (splitValue === 0) delete updatedPurchaseSplit[contactId];
   if (splitValue !== 0) updatedPurchaseSplit[contactId] = splitValue;
-
   return updatedPurchaseSplit;
 }
 

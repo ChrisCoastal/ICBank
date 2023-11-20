@@ -2,9 +2,7 @@ import NavLogo from '@/components/Nav/NavLogo';
 import NavMenu from '@/components/Nav/NavMenu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 
-type Props = {};
-
-const Nav = (props: Props) => {
+const Nav = () => {
   return (
     <nav className="mx-4 mb-4 flex h-16 items-center justify-between border-b border-b-white/20">
       <NavLogo />

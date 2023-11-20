@@ -1,13 +1,12 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Inter, Red_Hat_Display } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 import Nav from '@/components/Nav/Nav';
 import { AppProvider } from '@/context/AppProvider';
 
 const inter = Inter({ subsets: ['latin'] });
-const redHatDisplay = Red_Hat_Display({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'IC Bank',

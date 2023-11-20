@@ -3,7 +3,6 @@
 import PurchaseList from '@/components/PurchaseList/PurchaseList';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import Header from '@/components/ui/Header';
-import CheckIcon from '@/components/ui/icons/CheckIcon';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import useAppContext from '@/hooks/useAppContext';
 

@@ -1,11 +1,8 @@
 import Link from 'next/link';
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 
-import BackArrowIcon from '@/components/ui/icons/BackArrowIcon';
 import BaseIcon from '@/components/ui/icons/BaseIcon';
-import CheckIcon from '@/components/ui/icons/CheckIcon';
 import type icons from '@/components/ui/icons/paths';
-import SharePurchaseIcon from '@/components/ui/icons/SharePurchaseIcon';
 import { cn } from '@/lib/utils';
 
 type HeaderProps = {
