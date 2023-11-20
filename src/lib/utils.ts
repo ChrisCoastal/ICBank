@@ -6,6 +6,7 @@ import type {
   ContactId,
   SplitContactPayload,
   SplitEvenlyPayload,
+  UpdatePurchasePayload,
 } from '@/@types';
 
 // split bill
@@ -13,6 +14,19 @@ export function getUserSplit(purchaseSplit: Record<ContactId, number>) {
   return Object.values(purchaseSplit).reduce((acc, splitPercent) => {
     return acc - splitPercent;
   }, 1);
+}
+
+export function getContactsSplit(
+  contactSplit: Record<ContactId, number>,
+  purchaseSplit: Record<ContactId, number>
+) {
+  const [[contactId, splitValue]] = Object.entries(contactSplit);
+  const updatedPurchaseSplit = { ...purchaseSplit };
+
+  if (splitValue === 0) delete updatedPurchaseSplit[contactId];
+  if (splitValue !== 0) updatedPurchaseSplit[contactId] = splitValue;
+
+  return updatedPurchaseSplit;
 }
 
 export function getSplitSelectItems(
@@ -36,7 +50,7 @@ export function updateSplitContactState(
 ) {
   const { contactId, purchase, splitPercent } = payload;
   const { id: purchaseId, split } = purchase;
-  const account = state.accounts[purchase.accountName];
+  const account = state.accounts[purchase.accountId];
   const newSplit = { ...split };
   if (split[contactId] === splitPercent || splitPercent === 0) {
     delete newSplit[contactId];
@@ -48,7 +62,7 @@ export function updateSplitContactState(
     ...state,
     accounts: {
       ...state.accounts,
-      [purchase.accountName]: {
+      [purchase.accountId]: {
         ...account,
         purchases: {
           ...account.purchases,
@@ -68,13 +82,13 @@ export function updateSplitEvenlyState(
 ) {
   const { purchase, splitEven } = payload;
   const { id: purchaseId } = purchase;
-  const account = state.accounts[purchase.accountName];
+  const account = state.accounts[purchase.accountId];
 
   return {
     ...state,
     accounts: {
       ...state.accounts,
-      [purchase.accountName]: {
+      [purchase.accountId]: {
         ...account,
         purchases: {
           ...account.purchases,
@@ -82,6 +96,29 @@ export function updateSplitEvenlyState(
             ...account.purchases[purchaseId],
             splitEven,
           },
+        },
+      },
+    },
+  };
+}
+
+export function updatePurchaseState(
+  state: AppState,
+  payload: UpdatePurchasePayload
+) {
+  const { accountId, purchase } = payload;
+  const { id: purchaseId } = purchase;
+  const account = state.accounts[accountId];
+
+  return {
+    ...state,
+    accounts: {
+      ...state.accounts,
+      [accountId]: {
+        ...account,
+        purchases: {
+          ...account.purchases,
+          [purchaseId]: purchase,
         },
       },
     },

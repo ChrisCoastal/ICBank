@@ -7,7 +7,7 @@ export const INITIAL_STATE: AppState = {
       purchases: {
         '1': {
           id: '1',
-          accountName: 'checking',
+          accountId: 'checking',
           type: 'Food',
           location: 'Tap and Barrel',
           date: 'Wednesday November 15, 2023',
@@ -17,7 +17,7 @@ export const INITIAL_STATE: AppState = {
         },
         '2': {
           id: '2',
-          accountName: 'checking',
+          accountId: 'checking',
           type: 'Food',
           location: 'Tap and Barrel',
           date: 'Wednesday November 15, 2023',
@@ -27,7 +27,7 @@ export const INITIAL_STATE: AppState = {
         },
         '3': {
           id: '3',
-          accountName: 'checking',
+          accountId: 'checking',
           type: 'Food',
           location: 'Nemesis Poly',
           date: 'Wednesday November 15, 2023',
@@ -37,7 +37,7 @@ export const INITIAL_STATE: AppState = {
         },
         '4': {
           id: '4',
-          accountName: 'checking',
+          accountId: 'checking',
           type: 'Food',
           location: 'Nook',
           date: 'Tuesday November 14, 2023',
@@ -47,7 +47,7 @@ export const INITIAL_STATE: AppState = {
         },
         '5': {
           id: '5',
-          accountName: 'checking',
+          accountId: 'checking',
           type: 'Food',
           location: 'Nemesis Poly',
           date: 'Wednesday November 15, 2023',
@@ -62,7 +62,7 @@ export const INITIAL_STATE: AppState = {
       purchases: {
         '1': {
           id: '1',
-          accountName: 'savings',
+          accountId: 'savings',
           type: 'Rent',
           location: 'LTJ Bukem',
           date: 'Wednesday November 1, 2023',
@@ -72,7 +72,7 @@ export const INITIAL_STATE: AppState = {
         },
         '2': {
           id: '2',
-          accountName: 'savings',
+          accountId: 'savings',
           type: 'Rent',
           location: 'LTJ Bukem',
           date: 'Tuesday October 1, 2023',
@@ -82,7 +82,7 @@ export const INITIAL_STATE: AppState = {
         },
         '3': {
           id: '3',
-          accountName: 'savings',
+          accountId: 'savings',
           type: 'Rent',
           location: 'LTJ Bukem',
           date: 'Wednesday September 1, 2023',
@@ -97,7 +97,7 @@ export const INITIAL_STATE: AppState = {
       purchases: {
         '1': {
           id: '1',
-          accountName: 'visa',
+          accountId: 'visa',
           type: 'Shopping',
           location: 'Uniqlo',
           date: 'Wednesday November 15, 2023',
@@ -107,7 +107,7 @@ export const INITIAL_STATE: AppState = {
         },
         '2': {
           id: '2',
-          accountName: 'visa',
+          accountId: 'visa',
           type: 'Food',
           location: 'Nemesis Poly',
           date: 'Frday November 2, 2023',
@@ -117,7 +117,7 @@ export const INITIAL_STATE: AppState = {
         },
         '3': {
           id: '3',
-          accountName: 'visa',
+          accountId: 'visa',
           type: 'Shopping',
           location: 'molo',
           date: 'Thursday October 29, 2023',
@@ -127,7 +127,7 @@ export const INITIAL_STATE: AppState = {
         },
         '4': {
           id: '4',
-          accountName: 'visa',
+          accountId: 'visa',
           type: 'Food',
           location: "Lee's Donuts",
           date: 'Saturday October 11, 2023',

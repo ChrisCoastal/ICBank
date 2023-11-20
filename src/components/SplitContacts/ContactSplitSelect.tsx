@@ -1,4 +1,5 @@
 'use client';
+import { doc, setDoc } from 'firebase/firestore';
 import type { FC } from 'react';
 
 import type { Contact, Purchase } from '@/@types';
@@ -10,8 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/Select';
+import { db } from '@/firebase/firebase.config';
 import useAppContext from '@/hooks/useAppContext';
-import { getSplitSelectItems, getUserSplit } from '@/lib/utils';
+import {
+  getContactsSplit,
+  getSplitSelectItems,
+  getUserSplit,
+} from '@/lib/utils';
 
 type ContactSplitSelectProps = {
   contact: Contact;
@@ -26,7 +32,7 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
   purchase,
   splitValue,
 }) => {
-  const { dispatch } = useAppContext();
+  const { state, dispatch } = useAppContext();
 
   const userSplit = getUserSplit(purchase.split);
   const splitEven = purchase.splitEven;
@@ -36,11 +42,23 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
     contactSplitAmount
   );
 
-  function handleSelect(selectValue: string) {
-    dispatch({
-      type: 'TOGGLE_SPLIT_CONTACT',
-      payload: { contactId: contact.id, purchase, splitPercent: +selectValue },
-    });
+  async function handleSelect(selectValue: string) {
+    const updatedSplit = getContactsSplit(
+      { [contact.id]: +selectValue },
+      purchase.split
+    );
+
+    const accountRef = doc(
+      db,
+      `accounts/${purchase.accountId}/purchases/`,
+      purchase.id
+    );
+
+    setDoc(
+      accountRef,
+      { ...purchase, split: updatedSplit },
+      { merge: true }
+    ).catch((error) => console.error('Error writing document: ', error));
   }
 
   return (
@@ -66,7 +84,6 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
               </SelectItem>
             ) : null}
             {splitAmounts.map((splitAmount) => {
-              console.log(userSplit);
               const splitAmountValue = splitAmount.toString();
               const splitAmountPercent = splitAmount * 100;
               const splitAmountTotal = purchase.amount * splitAmount;

@@ -23,11 +23,24 @@ type ToggleSplitEvenlyAction = {
   payload: SplitEvenlyPayload;
 };
 
-export type ReducerActions = ToggleSplitContactAction | ToggleSplitEvenlyAction;
+export type UpdatePurchasePayload = {
+  accountId: string;
+  purchase: Purchase;
+};
+
+type UpdatePurchaseAction = {
+  type: 'UPDATE_PURCHASE';
+  payload: UpdatePurchasePayload;
+};
+
+export type ReducerActions =
+  | ToggleSplitContactAction
+  | ToggleSplitEvenlyAction
+  | UpdatePurchaseAction;
 
 export type Purchase = {
   id: string;
-  accountName: string;
+  accountId: string;
   type: string;
   location: string;
   date: string;
