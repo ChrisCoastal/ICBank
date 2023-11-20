@@ -1,6 +1,5 @@
 'use client';
 
-import { nanoid } from 'nanoid';
 import type { FC } from 'react';
 
 import PurchaseListItem from '@/components/PurchaseList/PurchaseListItem';
@@ -25,14 +24,13 @@ const PurchaseList: FC<PurchaseListProps> = ({ account }) => {
       <Accordion type="single" collapsible>
         {purchaseData ? (
           purchaseData.map((purchase, i) => {
-            const key = nanoid();
             return (
-              <div key={key}>
+              <div key={purchase.id}>
                 <PurchaseDate
                   date={purchase.date}
                   prevDate={purchaseData[i - 1]?.date}
                 />
-                <AccordionItem value={key} className="mx-2 p-2">
+                <AccordionItem value={purchase.id} className="mx-2 p-2">
                   <PurchaseListItem purchase={purchase} />
                   <PurchaseListItemDetail
                     account={account}

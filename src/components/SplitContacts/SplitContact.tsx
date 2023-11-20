@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import memo from 'react';
 
 import type { Contact, Purchase } from '@/@types';
 import ContactAvatar from '@/components/SplitContacts/ContactAvatar';

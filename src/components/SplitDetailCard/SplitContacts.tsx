@@ -7,9 +7,13 @@ import useAppContext from '@/hooks/useAppContext';
 
 type SplitContactProps = {
   splitContacts: [string, number][];
+  splitAmount: number;
 };
 
-const SplitContacts: FC<SplitContactProps> = ({ splitContacts }) => {
+const SplitContacts: FC<SplitContactProps> = ({
+  splitContacts,
+  splitAmount,
+}) => {
   const { state } = useAppContext();
   const contacts = state.contacts;
   const splitCount = splitContacts.length;
@@ -18,7 +22,10 @@ const SplitContacts: FC<SplitContactProps> = ({ splitContacts }) => {
     <>
       {splitCount ? (
         <div className="flex flex-col items-end self-end">
-          <SplitContactsTitle splitCount={splitCount} />
+          <SplitContactsTitle
+            splitCount={splitCount}
+            splitAmount={splitAmount}
+          />
 
           <div className="flex justify-end">
             {splitContacts.map((splitContact, i) => {

@@ -5,6 +5,7 @@ import SplitContacts from '@/components/SplitDetailCard/SplitContacts';
 import SplitPurchaseDetail from '@/components/SplitDetailCard/SplitPurchaseDetail';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Card, CardContent } from '@/components/ui/Card';
+import { getAmountSplit } from '@/lib/utils';
 
 type SplitDetailsProps = {
   purchase: Purchase;
@@ -12,6 +13,7 @@ type SplitDetailsProps = {
 
 const SplitDetails: FC<SplitDetailsProps> = ({ purchase }) => {
   const splitContacts = Object.entries(purchase.split);
+  const splitAmount = getAmountSplit(splitContacts, purchase.amount);
 
   return (
     <div className="relative mb-4">
@@ -23,10 +25,13 @@ const SplitDetails: FC<SplitDetailsProps> = ({ purchase }) => {
               <div className="rounded-full bg-gradient-to-br from-emerald-300 to-emerald-500 p-1">
                 <Avatar className="h-24 w-24">
                   <AvatarImage src={'/assets/bear-avatar.png'} />
-                  <AvatarFallback>CB</AvatarFallback>
+                  <AvatarFallback>ICBear</AvatarFallback>
                 </Avatar>
               </div>
-              <SplitContacts splitContacts={splitContacts} />
+              <SplitContacts
+                splitContacts={splitContacts}
+                splitAmount={splitAmount}
+              />
             </div>
           </CardContent>
         </Card>

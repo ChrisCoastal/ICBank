@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import type { FC } from 'react';
 
 import type { Contact, Purchase } from '@/@types';
@@ -17,7 +16,7 @@ const SplitContactsList: FC<SplitContactsListProps> = ({
     <ul className="flex flex-col gap-2">
       {Object.values(contacts).map((contact) => {
         return (
-          <li key={nanoid()}>
+          <li key={contact.id}>
             <SplitContact contact={contact} purchase={purchase} />
           </li>
         );

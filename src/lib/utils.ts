@@ -69,6 +69,18 @@ export function getSplitSelectItems(
     : splitAmounts;
 }
 
+export function getAmountSplit(
+  splitContacts: [string, number][],
+  purchaseAmount: number
+) {
+  const splitPercentage = splitContacts.reduce((acc, curr) => {
+    return acc + curr[1];
+  }, 0);
+  const splitAmount = +(purchaseAmount * splitPercentage).toFixed(2);
+
+  return splitAmount;
+}
+
 // tailwind / shadcn
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

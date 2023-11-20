@@ -77,7 +77,7 @@ const ContactSplitSelect: FC<ContactSplitSelectProps> = ({
           <SelectContent>
             {splitValue ? (
               <SelectItem value="0" className="flex gap-8">
-                <span className="text-emerald-300">{`Undo split`}</span>
+                <span className="text-emerald-300">Remove Split</span>
               </SelectItem>
             ) : null}
             {splitSelectItems.map((splitAmount) => {
