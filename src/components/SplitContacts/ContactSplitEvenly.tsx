@@ -1,3 +1,4 @@
+'use client';
 import type { FC } from 'react';
 import { useRef } from 'react';
 
@@ -11,13 +12,14 @@ type ContactSplitEvenlyProps = {
 };
 
 const ContactSplitEvenly: FC<ContactSplitEvenlyProps> = ({ purchase }) => {
-  const { state, dispatch } = useAppContext();
+  const { dispatch } = useAppContext();
   const switchRef = useRef<HTMLButtonElement>(null);
 
   function handleClick() {
-    console.log(switchRef.current?.getAttribute('data-state'));
-    const splitEven =
-      switchRef.current?.getAttribute('data-state') === 'checked';
+    const splitEven = Boolean(
+      switchRef.current?.getAttribute('data-state') === 'checked'
+    );
+
     dispatch({
       type: 'TOGGLE_SPLIT_EVENLY',
       payload: { splitEven, purchase },
@@ -27,7 +29,7 @@ const ContactSplitEvenly: FC<ContactSplitEvenlyProps> = ({ purchase }) => {
   return (
     <div className="mr-2 flex items-center gap-2">
       <Switch ref={switchRef} id="split-even" onCheckedChange={handleClick} />
-      <Label htmlFor="split-even" className="font-light">
+      <Label htmlFor="split-even" className="text-xs font-light">
         Split Evenly
       </Label>
     </div>

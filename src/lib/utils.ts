@@ -3,10 +3,26 @@ import { twMerge } from 'tailwind-merge';
 
 import type {
   AppState,
-  Purchase,
+  ContactId,
   SplitContactPayload,
   SplitEvenlyPayload,
 } from '@/@types';
+
+// split bill
+export function getUserSplit(purchaseSplit: Record<ContactId, number>) {
+  return Object.values(purchaseSplit).reduce((acc, splitPercent) => {
+    return acc - splitPercent;
+  }, 1);
+}
+
+export function getSplitSelectItems(
+  splitAmounts: number[],
+  contactSplitAmount?: number
+) {
+  return contactSplitAmount
+    ? [contactSplitAmount, ...splitAmounts].sort((a, b) => a - b)
+    : splitAmounts;
+}
 
 // tailwind / shadcn
 export function cn(...inputs: ClassValue[]) {

@@ -50,6 +50,7 @@ export type Contact = {
   email: string;
   phone: string;
   avatar: string;
+  split?: Record<string, number>;
 };
 
 export type AppState = {
